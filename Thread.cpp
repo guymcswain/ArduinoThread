@@ -27,8 +27,8 @@ void Thread::setInterval(unsigned long _interval){
 	// Save interval
 	interval = _interval;
 
-	// Cache the next run based on the last_run
-	_cached_next_run = last_run + interval;
+	// Cache the next run re-based to the current time
+	_cached_next_run = millis() + interval;
 }
 
 bool Thread::shouldRun(unsigned long time){
